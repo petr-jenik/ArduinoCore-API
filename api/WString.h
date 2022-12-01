@@ -27,10 +27,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <cstdint>
 #if defined(__AVR__)
 #include "avr/pgmspace.h"
 #else
-#include "deprecated-avr-comp/avr/pgmspace.h"
+#include "pgmspace.h"
 #endif
 
 namespace arduino {
@@ -42,7 +43,8 @@ namespace arduino {
 //     -std=c++0x
 
 class __FlashStringHelper;
-#define F(string_literal) (reinterpret_cast<const __FlashStringHelper *>(PSTR(string_literal)))
+#define F(string_literal) string_literal
+// (reinterpret_cast<const __FlashStringHelper *>(PSTR(string_literal)))
 
 // An inherited class for holding the result of a concatenation.  These
 // result objects are assumed to be writable by subsequent concatenations.
