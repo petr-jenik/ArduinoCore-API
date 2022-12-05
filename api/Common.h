@@ -81,11 +81,12 @@ typedef uint16_t  word;
 void init(void);
 void initVariant(void);
 
+/*
 #ifndef HOST
 int atexit(void (*func)()) __attribute__((weak));
 #endif
 int main() __attribute__((weak));
-
+*/
 #ifdef EXTENDED_PIN_MODE
 // Platforms who want to declare more than 256 pins need to define EXTENDED_PIN_MODE globally
 typedef uint32_t pin_size_t;
