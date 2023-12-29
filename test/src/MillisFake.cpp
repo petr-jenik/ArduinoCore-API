@@ -55,7 +55,7 @@ unsigned long millis()
   if (millis_fake_mode == MillisFakeMode::Auto)
   {
     std::chrono::steady_clock::time_point millis_now = std::chrono::steady_clock::now();
-    auto millis = std::chrono::duration_cast<std::chrono::microseconds>(millis_now - millis_begin).count();
+    auto millis = std::chrono::duration_cast<std::chrono::microseconds>(millis_now - millis_begin).count() / 1000;
     return static_cast<unsigned long>(millis);
   }
 
